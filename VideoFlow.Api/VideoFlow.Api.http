@@ -12,6 +12,6 @@ POST {{uri}}/users
 Content-Type: application/json
 
 {
-    "name": "43243432",
-    "email": "fdsasfa@example.com"
+    "name": "7777",
+    "email": "77@example.com"
 }
