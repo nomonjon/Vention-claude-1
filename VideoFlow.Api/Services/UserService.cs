@@ -6,14 +6,14 @@ namespace VideoFlow.Api.Services;
 
 public class UserService : IUserService
 {
-    private List<User> users =
+    private static readonly List<User> users =
     [
         new() { Id = 1, Name = "Alice", Email = "alice@example.com" },
         new() { Id = 2, Name = "Bob", Email = "bob@example.com" },
         new() { Id = 3, Name = "Charlie", Email = "charlie@example.com" }
     ];
 
-    private int nextId = 4;
+    private static int nextId = 4;
 
     public User Create(CreateUserDto userDto)
     {

@@ -16,7 +16,7 @@ public static class UserEndpoints
             return user is not null ? Results.Ok(user) : Results.NotFound();
         });
         
-        app.MapPost("/users", ([FromBody] CreateUserDto userDto, IUserService userService) =>
+        app.MapPost("/users", (CreateUserDto userDto, IUserService userService) =>
         {
             var user = userService.Create(userDto);
             return Results.Created($"/users/{user.Id}", user);

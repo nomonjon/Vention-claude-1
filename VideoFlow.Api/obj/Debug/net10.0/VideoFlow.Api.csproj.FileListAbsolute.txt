@@ -26,3 +26,4 @@ D:\gpt\VideoFlow.Api\obj\Debug\net10.0\refint\VideoFlow.Api.dll
 D:\gpt\VideoFlow.Api\obj\Debug\net10.0\VideoFlow.Api.pdb
 D:\gpt\VideoFlow.Api\obj\Debug\net10.0\VideoFlow.Api.genruntimeconfig.cache
 D:\gpt\VideoFlow.Api\obj\Debug\net10.0\ref\VideoFlow.Api.dll
+D:\gpt\VideoFlow.Api\obj\Debug\net10.0\VideoFlow.Api.sourcelink.json
