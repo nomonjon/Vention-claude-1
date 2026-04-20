@@ -14,6 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d0cb607ff7f4451d9a81284b3474e0c63fce369c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aefcb86c42df6bd1e2609fb23e0bb89900324d91")]
 [assembly: System.Reflection.AssemblyProductAttribute("VideoFlow.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VideoFlow.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

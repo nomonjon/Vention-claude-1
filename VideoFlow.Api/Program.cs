@@ -11,6 +11,7 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+
 var app = builder.Build();
 
 app.UseHttpsRedirection();
