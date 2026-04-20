@@ -1,0 +1,17 @@
+@uri = http://localhost:5246
+@id = 4
+###
+GET {{uri}}/users
+
+###
+GET {{uri}}/users/{{id}}
+
+###
+
+POST {{uri}}/users
+Content-Type: application/json
+
+{
+    "name": "fdsffdsfdsfsfd",
+    "email": "fdsasfa@example.com"
+}
