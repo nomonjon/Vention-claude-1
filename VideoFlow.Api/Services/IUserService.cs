@@ -5,7 +5,7 @@ namespace VideoFlow.Api.Services;
 
 public interface IUserService
 {
-    User? GetById(int id);
-    List<User> GetAll();
-    User Create(CreateUserDto userDto);
+    Task<User?> GetById(int id);
+    Task<List<User>> GetAll();
+    Task<User> Create(CreateUserDto userDto);
 }
