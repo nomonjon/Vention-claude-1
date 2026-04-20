@@ -6,9 +6,9 @@ using VideoFlow.Api.Models;
 namespace VideoFlow.Api.Services;
 
 
-public class UserService(AppDbContext _context) : IUserService
+public class UserService(AppDbContext context) : IUserService
 {
-    private readonly AppDbContext context = _context;
+
     public async Task<User> Create(CreateUserDto userDto)
     {
         var user = new User
@@ -17,7 +17,7 @@ public class UserService(AppDbContext _context) : IUserService
             Email = userDto.Email
         };
 
-        await context.Users.AddAsync(user);
+        context.Users.Add(user);
         await context.SaveChangesAsync();
 
         return user;
@@ -25,7 +25,7 @@ public class UserService(AppDbContext _context) : IUserService
 
     public async Task<List<User>> GetAll()
     {
-        return await context.Users.ToListAsync();
+        return await context.Users.AsNoTracking().ToListAsync();
     }
 
     public async Task<User?> GetById(int id)
