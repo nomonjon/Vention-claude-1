@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using VideoFlow.Api.Data;
+using VideoFlow.Api.Videos;
 
 namespace VideoFlow.Api.Users;
 
@@ -21,9 +22,16 @@ public class UserService(AppDbContext context) : IUserService
         return user;
     }
 
-    public async Task<List<User>> GetAll()
+    public async Task<List<UserDto>> GetAll()
     {
-        return await context.Users.AsNoTracking().ToListAsync();
+        var users = await context.Users.AsNoTracking().Select(u => new UserDto
+        {
+            Id = u.Id,
+            Name = u.Name,
+            Email = u.Email,
+            Videos = u.Videos.Select(v => v.ToDtoForUser()).ToList()
+        }).ToListAsync();
+        return users;
     }
 
     public async Task<User?> GetById(int id)
