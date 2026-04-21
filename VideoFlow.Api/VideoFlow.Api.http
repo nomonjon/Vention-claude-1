@@ -15,3 +15,16 @@ Content-Type: application/json
     "name": "43243432",
     "email": "fdsasfa@example.com"
 }
+
+###
+POST {{uri}}/videos
+Content-Type: application/json
+
+{
+   "title": "ne53254w",
+   "description": "45354",
+   "userId": 8
+}
+
+###
+GET {{uri}}/videos/12
