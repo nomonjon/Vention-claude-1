@@ -58,4 +58,20 @@ public class VideoService(AppDbContext context) : IVideoService
 
         return video?.ToDto();
     }
+
+    public async Task<List<VideoDto>?> GetByUserId(int userId)
+    {
+        return await context.Videos
+            .AsNoTracking()
+            .Where(v => v.UserId == userId)
+            .Select(v => new VideoDto
+            {
+                Id = v.Id,
+                Title = v.Title,
+                Description = v.Description,
+                CreatedAt = v.CreatedAt,
+                AuthorName = v.User.Name
+            })
+            .ToListAsync();
+    }
 }

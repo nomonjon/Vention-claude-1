@@ -1,10 +1,13 @@
 @uri = http://localhost:5246
-@id = 4
+@id = 1
 ###
 GET {{uri}}/users
 
 ###
 GET {{uri}}/users/{{id}}
+
+###
+GET {{uri}}/users/{{id}}/videos
 
 ###
 
