@@ -12,8 +12,8 @@ POST {{uri}}/users
 Content-Type: application/json
 
 {
-    "name": "43243432",
-    "email": "fdsasfa@example.com"
+    "name": "khan",
+    "email": "khan@example.com"
 }
 
 ###
@@ -21,10 +21,10 @@ POST {{uri}}/videos
 Content-Type: application/json
 
 {
-   "title": "ne53254w",
-   "description": "45354",
-   "userId": 8
+   "title": "ctoza7332437",
+   "description": "wt434324h77",
+   "userId": 2
 }
 
 ###
-GET {{uri}}/videos/12
+GET {{uri}}/videos/
