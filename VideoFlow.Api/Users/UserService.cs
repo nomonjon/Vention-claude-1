@@ -34,8 +34,9 @@ public class UserService(AppDbContext context) : IUserService
         return users;
     }
 
-    public async Task<User?> GetById(int id)
+    public async Task<UserDto?> GetById(int id)
     {
-        return await context.Users.AsNoTracking().FirstOrDefaultAsync(u => u.Id == id);
+        var user =  await context.Users.AsNoTracking().FirstOrDefaultAsync(u => u.Id == id);
+        return user?.ToDto();
     }
 }
