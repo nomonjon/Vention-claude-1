@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using VideoFlow.Api.Dtos;
-using VideoFlow.Api.Services;
 
-namespace VideoFlow.Api.Endpoints;
+namespace VideoFlow.Api.Users;
 
 public static class UserEndpoints
 {
