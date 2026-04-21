@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VideoFlow.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+41b5c63fb6586c44bcbac025816ced5dfe92813e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+119e462cd8f51e8b91c2fdf7a1fd7e4fccc7c76f")]
 [assembly: System.Reflection.AssemblyProductAttribute("VideoFlow.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VideoFlow.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

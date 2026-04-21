@@ -1,9 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using VideoFlow.Api.Data;
-using VideoFlow.Api.Dtos;
-using VideoFlow.Api.Models;
 
-namespace VideoFlow.Api.Services;
+namespace VideoFlow.Api.Users;
 
 
 public class UserService(AppDbContext context) : IUserService

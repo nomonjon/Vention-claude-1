@@ -1,7 +1,4 @@
-using VideoFlow.Api.Dtos;
-using VideoFlow.Api.Models;
-
-namespace VideoFlow.Api.Services;
+namespace VideoFlow.Api.Users;
 
 public interface IUserService
 {

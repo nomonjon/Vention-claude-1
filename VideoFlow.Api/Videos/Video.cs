@@ -1,4 +1,6 @@
-namespace VideoFlow.Api.Models;
+using VideoFlow.Api.Users;
+
+namespace VideoFlow.Api.Videos;
 
 public class Video
 {
