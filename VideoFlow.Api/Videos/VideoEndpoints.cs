@@ -1,3 +1,4 @@
+using FluentValidation;
 using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace VideoFlow.Api.Videos;
@@ -20,12 +21,18 @@ public static class VideoEndpoints
 
         });
 
-        app.MapPost("/videos", async (CreateVideoDto videoDto, IVideoService videoService) =>
+        app.MapPost("/videos", async (CreateVideoDto videoDto, IVideoService videoService, IValidator<CreateVideoDto> validator) =>
         {
+            var validationResult = await validator.ValidateAsync(videoDto);
+            if (validationResult.IsValid is false)
+            {
+                return Results.ValidationProblem(validationResult.ToDictionary());
+            }
 
             var video = await videoService.Create(videoDto);
-            return video is not null ? Results.Created($"/videos/{video.Id}", video) : Results.BadRequest("Could not create video, user not found.");
-
+            return video.IsSuccess
+                ? Results.Created($"/videos/{video.Value!.Id}", video.Value)
+                : Results.BadRequest(video.Error);
         });
     }
 }

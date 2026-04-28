@@ -1,3 +1,4 @@
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using VideoFlow.Api.Videos;
 
@@ -21,10 +22,17 @@ public static class UserEndpoints
             return videos is null ? Results.NotFound() : Results.Ok(videos);
         });
 
-        app.MapPost("/users", async (CreateUserDto userDto, IUserService userService) =>
+        app.MapPost("/users", async (CreateUserDto userDto, IUserService userService, IValidator<CreateUserDto> validator) =>
         {
+            var validationResult = await validator.ValidateAsync(userDto);
+            if(validationResult.IsValid is false)
+            {
+                return Results.ValidationProblem(validationResult.ToDictionary());
+            }
             var user = await userService.Create(userDto);
-            return Results.Created($"/users/{user.Id}", user);
+            return user.IsSuccess 
+                ? Results.Created($"/users/{user.Value!.Id}", user.Value) 
+                : Results.BadRequest(user.Error);
         });
     }
 }

@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using VideoFlow.Api.Common;
 using VideoFlow.Api.Data;
 using VideoFlow.Api.Users;
 
@@ -6,31 +7,31 @@ namespace VideoFlow.Api.Videos;
 
 public class VideoService(AppDbContext context) : IVideoService
 {
-    public async Task<VideoDto?> Create(CreateVideoDto videoDto)
+    public async Task<Result<VideoDto>> Create(CreateVideoDto videoDto)
     {
 
         var user = await context.Users.AnyAsync(u => u.Id == videoDto.UserId);
 
         if (!user)
         {
-            return null;
+            return Result<VideoDto>.Failure("User not found");
         }
 
         var video = videoDto.ToEntity();
 
         context.Videos.Add(video);
         await context.SaveChangesAsync();
-        return await context.Videos
-            .Where(v => v.Id == video.Id)
-            .Select(v => new VideoDto
-            {
-                Id = v.Id,
-                Title = v.Title,
-                Description = v.Description,
-                CreatedAt = v.CreatedAt,
-                AuthorName = v.User.Name
-            })
-            .FirstOrDefaultAsync();
+
+        var saved = await context.Videos.Where(v => v.Id == video.Id).Select(v => new VideoDto
+        {
+            Id = v.Id,
+            Title = v.Title,
+            Description = v.Description,
+            CreatedAt = v.CreatedAt,
+            AuthorName = v.User.Name
+        }).FirstOrDefaultAsync();
+
+        return Result<VideoDto>.Success(saved!);
 
     }
 
